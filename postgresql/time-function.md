@@ -73,3 +73,18 @@
 | TZ                       | 	time-zone name (uppercase)                                                       |
 | tz                       | 	time-zone name (lowercase)                                                       |
 ||
+
+
+### TimescaleDB Function Example
+
+올바른 예
+```sql
+select time_bucket('1 hour'::interval, '2023-01-10 04:00:00.000000 +00:00')
+```
+```sql
+select timescaledb_experimental.time_bucket_ng('1 hour'::interval, '2023-01-10 04:00:00.000000 +00:00'::timestamp)
+```
+잘못된 예
+```sql
+select timescaledb_experimental.time_bucket_ng('1 hour'::interval, '2023-01-10 04:00:00.000000 +00:00')
+```
